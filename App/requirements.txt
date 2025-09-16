@@ -1,0 +1,26 @@
+# --- Web Framework (FastAPI) ---
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-multipart==0.0.9
+
+# --- Database (MongoDB) ---
+pymongo==4.15.0
+dnspython==2.8.0
+
+# --- Authentication ---
+PyJWT==2.8.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.2.1
+
+# --- Background Tasks ---
+redis==5.0.8
+rq==1.16.2
+
+# --- Repo Mining ---
+pydriller==2.9
+
+# --- AI / External API ---
+mistralai==0.0.9
+
+#  --- Other Dependencies ---
+python-dotenv
