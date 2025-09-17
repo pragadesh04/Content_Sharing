@@ -17,10 +17,15 @@ def add_user(user_request : User):
 
   is_user = users.find_one({"username" : user_request.username})
   
+  try:
+    phone = int(user_request.phone)
+  except:
+    raise HTTPException(status_code = 422, detail = "enter the valid mobile number")
+  
   if not is_user:
     result = users.insert_one({
       "username" : user_request.username, "age" : user_request.age,
-      "location" : user_request.location
+      "phone" : phone ,"location" : user_request.location
     })
     return (str(result.inserted_id))
   else:
@@ -31,6 +36,7 @@ def add_user(user_request : User):
 def update_users_courses(courses_opted : course_payment = None):
   users = users_collection()
   courses = courses_collection()
+  
   
   is_user = users.find_one({"username" : courses_opted.username})
   is_course_in_user = users.find_one({"username" : courses_opted.username, "courses.title" : courses_opted.title})
@@ -60,5 +66,21 @@ def update_users_courses(courses_opted : course_payment = None):
 
 @router.put("/user-update")
 def users_detail_update(updated_request : Update_User):
-  updated_request = updated_request.model_dump(exclude_defaults=True)
+  users = users_collection()
+  
+  try:
+    phone = int(updated_request.phone)
+    updated_request.phone = phone
+  except Exception as e:
+    raise HTTPException(status_code = 422, detail = f"enter the valid mobile number")
+  
+  updated_requests = updated_request.model_dump(exclude_unset = True)
+  
+  is_user = users.find_one({"username" : updated_request.username})
+  
+  if is_user:
+    users.update_one(
+      {"username" : updated_request.username},
+      {"$set" : updated_requests}
+    )
   return updated_request
