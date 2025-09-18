@@ -25,3 +25,6 @@ mistralai==0.0.9
 
 #  --- Other Dependencies ---
 python-dotenv
+python-telegram-bot
+asyncio
+requests

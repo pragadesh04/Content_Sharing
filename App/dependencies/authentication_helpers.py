@@ -8,9 +8,8 @@ import os
 
 load_dotenv()
 
-oauth2 = OAuth2PasswordBearer(tokenUrl = "/login")
-
-psw = CryptContext(schemes = ["bcrypt"])
+oauth2=OAuth2PasswordBearer(tokenUrl="/login")
+psw=CryptContext(schemes=["bcrypt"])
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 ALGORITHM = os.environ.get("ALGORITHM")

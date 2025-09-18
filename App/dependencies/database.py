@@ -5,6 +5,9 @@ import os
 from App.dependencies.authentication_helpers import hash_password
 load_dotenv()
 
+telegram_api_token = os.environ.get("telegram_bot_token")
+print(telegram_api_token)
+
 mongo_url = os.environ.get("mongo_url")
 password = os.environ.get("admin_pass")
 

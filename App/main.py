@@ -5,7 +5,10 @@ from App.routes.admin.dashboard import router as dashboard_router
 from App.routes.admin.moderators import router as mods_router
 from App.routes.admin.login import router as login_router
 
+from App.dependencies.telegram_helpers import start_up
+
 app = FastAPI()
+
 
 app.include_router(dashboard_router)
 app.include_router(approval_routers)
