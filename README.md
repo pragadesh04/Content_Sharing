@@ -58,8 +58,8 @@ It is built with **FastAPI**, **MongoDB**, and will integrate with messaging/pay
 1. Clone the repo:
 
    ```bash
-   git clone https://github.com/yourusername/content-sharing-platform.git
-   cd content-sharing-platform
+   git clone https://github.com/pragadesh04/Content-Sharing.git
+   cd Content-Sharing
 
 2. Create a virtual environment & install dependencies:
 
