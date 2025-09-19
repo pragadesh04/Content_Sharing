@@ -61,6 +61,7 @@ def update_courses(course_id : str, updated_request : course_schema.Update_Cours
   else:
     raise HTTPException(status_code = 401, detail = "required admin rights")
 
+
 @router.delete("/courses")
 def delete_courses(course_id : str, admin_details : dict = Depends(get_current_user)):
 

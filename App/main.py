@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from App.routes.admin.user_approvals import router as approval_routers
 from App.routes.admin.dashboard import router as dashboard_router
